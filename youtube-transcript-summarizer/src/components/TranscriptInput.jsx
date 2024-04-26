@@ -6,6 +6,34 @@ const TranscriptInput = () => {
   const [transcriptText, setTranscriptText] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [summary, setSummary] = useState("");
+
+  async function sendSummarizationRequest(transcript, instructions = null) {
+    try {
+      const summarizationRequest = {
+        transcript: transcript,
+        instructions: instructions, // Allow optional instructions
+      };
+
+      const response = await fetch("http://localhost:5000/summarize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(summarizationRequest),
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          `Summarization request failed with status: ${response.status}`
+        );
+      }
+
+      const data = await response.json();
+      return data.summary; // Return the summarized text
+    } catch (error) {
+      console.error("Error sending summarization request:", error);
+      throw error; // Re-throw the error to allow callers to handle it
+    }
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,7 +47,27 @@ const TranscriptInput = () => {
     }
 
     const videoId = youtubeLink.split("v=")[1];
-    fetchAndExtractTranscript(videoId);
+
+    try {
+      setLoading(true);
+      setError("");
+
+      // Fetch and extract transcript
+      await fetchAndExtractTranscript(videoId);
+
+      // Proceed to send summarization request
+      const instructions = "Summarize the key points concisely.";
+      const summary = await sendSummarizationRequest(
+        transcriptText,
+        instructions
+      );
+      setSummary(summary);
+      console.log(summary);
+    } catch (error) {
+      setError("An error occurred during transcript fetch or summarization");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const fetchAndExtractTranscript = async (videoId) => {
