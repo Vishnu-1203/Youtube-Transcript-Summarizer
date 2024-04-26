@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./styles.css"; // Assuming you have some CSS styles
 
 const TranscriptInput = () => {
@@ -7,12 +7,18 @@ const TranscriptInput = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [summary, setSummary] = useState("");
+  const [instructionSum, setInstructionSum] = useState(""); // Default value
 
-  async function sendSummarizationRequest(transcript, instructions = null) {
+  async function sendSummarizationRequest(
+    transcript,
+    instructions = null,
+    youtubeLink
+  ) {
     try {
       const summarizationRequest = {
+        videoLink: youtubeLink,
         transcript: transcript,
-        instructions: instructions, // Allow optional instructions
+        instructions: instructionSum, // Allow optional instructions
       };
 
       const response = await fetch("http://localhost:5000/summarize", {
@@ -37,6 +43,7 @@ const TranscriptInput = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setSummary(""); // Reset summary before a new request
 
     // Basic input validation
     const validUrlRegex =
@@ -55,12 +62,25 @@ const TranscriptInput = () => {
       // Fetch and extract transcript
       await fetchAndExtractTranscript(videoId);
 
-      // Proceed to send summarization request
-      const instructions = "Summarize the key points concisely.";
+      if (instructionSum.trim() === "") {
+        setInstructionSum("Summarize the key points concisely");
+      }
+
+      // Build request data (include youtubeLink)
+      const requestData = {
+        youtubeLink: youtubeLink, // Store the link with the key 'youtubeLink'
+        transcript: transcriptText || "",
+        instructions: instructionSum,
+      };
+      console.log("requestData:", requestData);
+
+      // Send summarization request with the new data structure
       const summary = await sendSummarizationRequest(
-        transcriptText,
-        instructions
+        requestData.transcript,
+        requestData.instructions,
+        requestData.youtubeLink
       );
+
       setSummary(summary);
       console.log(summary);
     } catch (error) {
@@ -104,16 +124,23 @@ const TranscriptInput = () => {
           value={youtubeLink}
           onChange={handleChange}
         />
+        <input
+          type="text"
+          className="instructions-input"
+          placeholder="Enter summarization instructions"
+          value={instructionSum}
+          onChange={(event) => setInstructionSum(event.target.value)}
+        />
         <button type="submit" className="submit-button">
           Submit
         </button>
       </form>
       {loading && <p>Loading...</p>}
       {error && <p className="error-message">{error}</p>}
-      {transcriptText && (
-        <div className="transcript-section">
-          <h2 className="transcript-heading">Transcript</h2>
-          <p className="transcript-content">{transcriptText}</p>
+      {summary && (
+        <div className="summary-section">
+           <h2 className="summary-heading">Summary</h2>
+          <p className="summary-content">{summary}</p>
         </div>
       )}
     </div>
