@@ -1,54 +1,7 @@
-/* styles.css */
-
-/* Heading */
-.heading-container {
-  padding: 20px;
-  background-color: #ecf0f1; /* Dark blue */
-  color: #000000; /* White text */
-  text-align: center;
-}
-
 .heading {
-  font-size: 36px;
-  margin: 0;
-}
-
-/* Transcript Input */
-.transcript-input-container {
-  margin-top: 50px;
-  padding: 20px;
-  background-color: #ecf0f1; /* Light gray */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 60%;
-  max-width: 600px; /* Limit maximum width */
-  margin: auto; /* Center horizontally */
-}
-
-.transcript-heading {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.transcript-textarea {
-  width: 100%;
-  height: 150px;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 5px;
-  resize: none;
-}
-
-.summary-section {
-  margin-top: 20px;
-}
-
-.summary-heading {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.summary-content {
-  font-size: 16px;
+  font-family: "Roboto", sans-serif; /* Use any cool font you like */
+  font-size: 24px; /* Adjust font size as needed */
+  text-align: center; /* Center align the text */
+  margin-top: 20px; /* Add some top margin for spacing */
+  color: #333; /* Change the color if needed */
 }

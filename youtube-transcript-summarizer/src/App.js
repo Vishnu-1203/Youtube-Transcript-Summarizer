@@ -1,14 +1,11 @@
-// App.js
 import React from "react";
 import "./App.css";
-import Heading from "./components/heading";
-import TranscriptInput from "./components/TranscriptInput";
+import Heading from "./components/heading"; // Update the import to use proper casing
 
 function App() {
   return (
     <div className="App">
-      <Heading />
-      <TranscriptInput />
+      <Heading>Youtube Transcript Summarizer</Heading>
     </div>
   );
 }
