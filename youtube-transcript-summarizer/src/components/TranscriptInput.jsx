@@ -116,7 +116,7 @@ const TranscriptInput = () => {
   return (
     <div className="transcript-input-container">
       <h2 className="transcript-heading">Input your YouTube link</h2>
-      <form onSubmit={handleSubmit} className="form-input">
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           className="youtube-link-input"
@@ -131,22 +131,18 @@ const TranscriptInput = () => {
           value={instructionSum}
           onChange={(event) => setInstructionSum(event.target.value)}
         />
-        <div id="submit-button1">
-          <button type="submit" className="submit-button">
-            Submit
-          </button>
-        </div>
+        <button type="submit" className="submit-button">
+          Submit
+        </button>
       </form>
-      <div className="output-section">
-        {loading && <p>Loading...</p>}
-        {error && <p className="error-message">{error}</p>}
-        {summary && (
-          <div className="summary-section">
-             <h2 className="summary-heading">Summary</h2>
-            <p className="summary-content">{summary}</p>
-          </div>
-        )}
-      </div>
+      {loading && <p>Loading...</p>}
+      {error && <p className="error-message">{error}</p>}
+      {summary && (
+        <div className="summary-section">
+           <h2 className="summary-heading">Summary</h2>
+          <p className="summary-content">{summary}</p>
+        </div>
+      )}
     </div>
   );
 };
