@@ -1,7 +1,69 @@
+.app-footer {
+  /* Updated class name */
+  grid-row: 3;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+}
+
 .heading {
-  font-family: "Roboto", sans-serif; /* Use any cool font you like */
-  font-size: 24px; /* Adjust font size as needed */
-  text-align: center; /* Center align the text */
-  margin-top: 20px; /* Add some top margin for spacing */
-  color: #333; /* Change the color if needed */
+  font-family: "Poppins", sans-serif; /* A more modern-looking font */
+  font-size: 32px; /* Larger font size for emphasis */
+  text-align: center;
+  color: #2196f3; /* A vibrant blue color */
+  padding: 15px 0; /* Add padding for visual breathing room */
+  border-bottom: 2px solid #e0e0e0; /* Subtle bottom border */
+}
+/* ... other styles ... */
+
+.transcript-input-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 4fr 10fr;
+}
+.transcript-heading {
+  margin-bottom: 0px;
+  padding: 0px;
+  text-align: center;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.form-input {
+  grid-column: span 3;
+  grid-row: 2;
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f0f0f0; /* Light gray background */
+}
+
+.youtube-link-input,
+.instructions-input {
+  width: 100%; /* Make inputs take full available width */
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-button {
+  background-color: #2196f3; /* Blue background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#submit-button1 {
+  text-align: center;
+}
+.output-section {
+  margin: 1rem 0rem;
+  grid-row: 3;
+  background-color: antiquewhite;
+  border-radius: 2%;
+  grid-column: span 3;
 }
