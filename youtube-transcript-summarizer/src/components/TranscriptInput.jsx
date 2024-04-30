@@ -115,35 +115,44 @@ const TranscriptInput = () => {
 
   return (
     <div className="transcript-input-container">
-      <h2 className="transcript-heading">Input your YouTube link</h2>
       <form onSubmit={handleSubmit} className="form-input">
         <input
           type="text"
-          className="youtube-link-input"
+          className="youtube-link-input averia-serif-libre-regular-italic"
           placeholder="Paste your YouTube link here"
           value={youtubeLink}
           onChange={handleChange}
         />
         <input
           type="text"
-          className="instructions-input"
+          className="instructions-input averia-serif-libre-regular-italic"
           placeholder="Enter summarization instructions"
           value={instructionSum}
           onChange={(event) => setInstructionSum(event.target.value)}
         />
         <div id="submit-button1">
-          <button type="submit" className="submit-button">
+          <button
+            type="submit"
+            className="submit-button averia-serif-libre-regular"
+          >
             Submit
           </button>
         </div>
       </form>
       <div className="output-section">
-        {loading && <p>Loading...</p>}
+        {loading && (
+          <p className="averia-serif-libre-light-italic">Loading...</p>
+        )}
         {error && <p className="error-message">{error}</p>}
         {summary && (
           <div className="summary-section">
-             <h2 className="summary-heading">Summary</h2>
-            <p className="summary-content">{summary}</p>
+             
+            <h2 className="summary-heading averia-serif-libre-regular">
+              Summary
+            </h2>
+            <p className="summary-content averia-serif-libre-bold-italic">
+              {summary}
+            </p>
           </div>
         )}
       </div>

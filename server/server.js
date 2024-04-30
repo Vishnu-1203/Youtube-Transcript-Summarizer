@@ -16,7 +16,7 @@ app.get("/transcript", async (req, res) => {
 
   try {
     // Artificial Delay (Adjust as needed)
-    await new Promise((resolve) => setTimeout(resolve, 5000)); // Wait for 5 seconds
+    await new Promise((resolve) => setTimeout(resolve, 15000)); // Wait for 5 seconds
 
     const transcript = await YoutubeTranscript.fetchTranscript(videoId);
 

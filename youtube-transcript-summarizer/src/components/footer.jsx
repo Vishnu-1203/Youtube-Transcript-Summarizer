@@ -6,12 +6,11 @@ const Footer = () => {
 
   return (
     <footer className="app-footer">
-      <p className="copyright">&copy; {currentYear} Your Company or Name</p>
-      <nav className="footer-links">
-        <button className="footer-link">About Us</button>
-        <button className="footer-link">Contact</button>
-        <button className="footer-link">Privacy Policy</button>
-      </nav>
+      <p className="copyright summary-heading averia-serif-libre-regular">
+        {" "}
+        {currentYear} All rights reserved <br />
+        Vishnudath M
+      </p>
     </footer>
   );
 };

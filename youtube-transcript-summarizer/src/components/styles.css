@@ -1,19 +1,22 @@
 .app-footer {
   /* Updated class name */
   grid-row: 3;
-  background-color: #333;
-  color: white;
+  border-radius: 6%;
+  background-color: #b99470;
+  color: rgb(0, 0, 0);
   text-align: center;
   bottom: 0;
   width: 100%;
 }
 
 .heading {
-  font-family: "Poppins", sans-serif; /* A more modern-looking font */
-  font-size: 32px; /* Larger font size for emphasis */
+  border-radius: 5%;
+  font-family: "Roboto", sans-serif; /* A more modern-looking font */
+  font-size: 2rem; /* Larger font size for emphasis */
   text-align: center;
-  color: #2196f3; /* A vibrant blue color */
-  padding: 15px 0; /* Add padding for visual breathing room */
+  color: #000000; /* A vibrant blue color */
+  background-color: #b99470;
+  padding: 1rem 0; /* Add padding for visual breathing room */
   border-bottom: 2px solid #e0e0e0; /* Subtle bottom border */
 }
 /* ... other styles ... */
@@ -22,14 +25,7 @@
   display: grid;
   height: 100%;
 
-  grid-template-rows: 1fr 4fr 10fr;
-}
-.transcript-heading {
-  margin-bottom: 0px;
-  padding: 0px;
-  text-align: center;
-  grid-column: 2;
-  grid-row: 1;
+  grid-template-rows: 1fr 10fr 25fr;
 }
 
 .form-input {
@@ -37,7 +33,7 @@
   grid-row: 2;
   padding: 20px;
   border-radius: 8px; /* Rounded corners */
-  background-color: #f0f0f0; /* Light gray background */
+  background-color: #f7dcb9; /* Light gray background */
 }
 
 .youtube-link-input,
@@ -47,10 +43,11 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 1rem;
 }
 
 .submit-button {
-  background-color: #2196f3; /* Blue background */
+  background-color: #b99470; /* Blue background */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -60,10 +57,54 @@
 #submit-button1 {
   text-align: center;
 }
+.summary-heading {
+  text-align: center;
+}
 .output-section {
-  margin: 1rem 0rem;
+  padding: 1rem;
   grid-row: 3;
   background-color: antiquewhite;
   border-radius: 2%;
   grid-column: span 3;
+}
+.averia-serif-libre-light {
+  font-family: "Averia Serif Libre", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.averia-serif-libre-regular {
+  font-family: "Averia Serif Libre", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.averia-serif-libre-bold {
+  font-family: "Averia Serif Libre", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.averia-serif-libre-light-italic {
+  font-family: "Averia Serif Libre", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.averia-serif-libre-regular-italic {
+  font-family: "Averia Serif Libre", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.averia-serif-libre-bold-italic {
+  font-family: "Averia Serif Libre", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: 1.5rem;
+  }
 }
