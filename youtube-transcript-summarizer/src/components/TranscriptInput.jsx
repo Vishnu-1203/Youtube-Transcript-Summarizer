@@ -96,7 +96,7 @@ const TranscriptInput = () => {
       setError("");
 
       const response = await fetch(
-        `http://localhost:5000/transcript?videoId=${videoId}`
+        `https://ytsbackend.netlify.app/transcript?videoId=${videoId}`
       );
       const transcriptData = await response.json();
 
