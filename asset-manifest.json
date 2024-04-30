@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Youtube-Transcript-Summarizer/static/css/main.cddd9ab2.css",
+    "main.js": "/Youtube-Transcript-Summarizer/static/js/main.242110ed.js",
+    "index.html": "/Youtube-Transcript-Summarizer/index.html",
+    "main.cddd9ab2.css.map": "/Youtube-Transcript-Summarizer/static/css/main.cddd9ab2.css.map",
+    "main.242110ed.js.map": "/Youtube-Transcript-Summarizer/static/js/main.242110ed.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cddd9ab2.css",
+    "static/js/main.242110ed.js"
+  ]
+}
